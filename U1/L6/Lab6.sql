@@ -1,36 +1,36 @@
 --task1
 CREATE TABLESPACE ts_dw_data_01
-DATAFILE '/oracle/u02/oradata/DMORCL21DB/esolomevic_db/db_qpt_dw_data_01.dat'
+DATAFILE '/oracle/u02/oradata/DMORCL21DB/ekalugin_db/db_qpt_dw_data_01.dat'
 SIZE 200M
  AUTOEXTEND ON NEXT 100M
  SEGMENT SPACE MANAGEMENT AUTO;
 
 CREATE TABLESPACE ts_dw_idx_01
-DATAFILE '/oracle/u02/oradata/DMORCL21DB/esolomevic_db/db_qpt_dw_idx_01.dat'
+DATAFILE '/oracle/u02/oradata/DMORCL21DB/ekalugin_db/db_qpt_dw_idx_01.dat'
 SIZE 150M
  AUTOEXTEND ON NEXT 50M
  SEGMENT SPACE MANAGEMENT AUTO;
 
 CREATE TABLESPACE ts_persons_data_01
-DATAFILE '/oracle/u02/oradata/DMORCL21DB/esolomevic_db/db_qpt_person_data_01.dat'
+DATAFILE '/oracle/u02/oradata/DMORCL21DB/ekalugin_db/db_qpt_person_data_01.dat'
 SIZE 150M
  AUTOEXTEND ON NEXT 50M
  SEGMENT SPACE MANAGEMENT AUTO;
 
 CREATE TABLESPACE ts_persons_idx_01
-DATAFILE '/oracle/u02/oradata/DMORCL21DB/esolomevic_db/db_qpt_person_idx_01.dat'
+DATAFILE '/oracle/u02/oradata/DMORCL21DB/ekalugin_db/db_qpt_person_idx_01.dat'
 SIZE 50M
  AUTOEXTEND ON NEXT 50M
  SEGMENT SPACE MANAGEMENT AUTO;
 
 CREATE TABLESPACE ts_references_data_01
-DATAFILE '/oracle/u02/oradata/DMORCL21DB/esolomevic_db/db_qpt_references_data_01.dat'
+DATAFILE '/oracle/u02/oradata/DMORCL21DB/ekalugin_db/db_qpt_references_data_01.dat'
 SIZE 150M
  AUTOEXTEND ON NEXT 50
  SEGMENT SPACE MANAGEMENT AUTO;
 
 CREATE TABLESPACE ts_references_ext_data_01
-DATAFILE '/oracle/u02/oradata/DMORCL21DB/esolomevic_db/db_qpt_ext_references_data_01.dat'
+DATAFILE '/oracle/u02/oradata/DMORCL21DB/ekalugin_db/db_qpt_ext_references_data_01.dat'
 SIZE 20M
  AUTOEXTEND ON
     NEXT 20M
@@ -38,7 +38,7 @@ SIZE 20M
  SEGMENT SPACE MANAGEMENT AUTO;
 
 CREATE TABLESPACE ts_references_idx_01
-DATAFILE '/oracle/u02/oradata/DMORCL21DB/esolomevic_db/db_qpt_references_idx_01.dat'
+DATAFILE '/oracle/u02/oradata/DMORCL21DB/ekalugin_db/db_qpt_references_idx_01.dat'
 SIZE 50M
  AUTOEXTEND ON NEXT 50M
  SEGMENT SPACE MANAGEMENT AUTO;
