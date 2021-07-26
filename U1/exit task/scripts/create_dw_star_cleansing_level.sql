@@ -1,0 +1,12 @@
+BEGIN 
+    u_sal_dw_cl.pkg_cleansing_dw_star.sales;
+    u_sal_dw_cl.pkg_cleansing_dw_star.customers;
+    u_sal_dw_cl.pkg_cleansing_dw_star.stores;
+    u_sal_dw_cl.pkg_cleansing_dw_star.employees;
+    u_sal_dw_cl.pkg_cleansing_dw_star.pizzas;
+    u_sal_dw_cl.pkg_cleansing_dw_star.promotions;
+    u_sal_dw_cl.pkg_cleansing_dw_star.payment_methods;
+    u_sal_dw_cl.pkg_cleansing_dw_star.geo_locations;
+    u_sal_dw_cl.pkg_cleansing_dw_star.dates;
+    u_sal_dw_cl.pkg_cleansing_dw_star.gen_periods;
+END;

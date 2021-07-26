@@ -1,0 +1,10 @@
+BEGIN
+    u_dw_cl.pkg_cleansing.load_ref_sales;
+    u_dw_cl.pkg_cleansing.load_ref_customers;
+    u_dw_cl.pkg_cleansing.load_ref_stores;
+    u_dw_cl.pkg_cleansing.load_ref_employees;
+    u_dw_cl.pkg_cleansing.load_ref_pizzas;
+    u_dw_cl.pkg_cleansing.load_ref_promotions;
+    u_dw_cl.pkg_cleansing.load_ref_payment_methods;
+    u_dw_cl.pkg_cleansing.load_ref_geo_locations;
+END;
