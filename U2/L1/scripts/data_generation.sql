@@ -99,6 +99,9 @@ SELECT ROWNUM,
   FROM DUAL
   CONNECT BY LEVEL <= 100000;
 
+UPDATE u_sa_pizzas_data.sa_pizzas
+SET category_desc = 'Category ' || category_id;
+
 SELECT * FROM u_sa_pizzas_data.sa_pizzas;
 
 --sa_promotions
