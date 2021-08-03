@@ -95,21 +95,24 @@ drop table u_sa_geo_locations_data.sa_geo_locations cascade constraints;
 /* Table: sa_geo_locations                                     */
 /*==============================================================*/
 create table u_sa_geo_locations_data.sa_geo_locations (
-   GEO_ID               NUMBER                not null,
+   COUNTRY_GEO_ID      NUMBER                not null,
    GEO_COUNTRY_ID       NUMBER                not null,
    GEO_COUNTRY_CODE_A2  VARCHAR2(128)         not null,
    GEO_COUNTRY_CODE_A3  VARCHAR2(128)         not null,
    GEO_COUNTRY_DESC     VARCHAR2(128)         not null,
+   REGION_GEO_ID        NUMBER                not null,
    GEO_REGION_ID        NUMBER                not null,
+   GEO_REGION_CODE      VARCHAR2(128)         not null,
    GEO_REGION_DESC      VARCHAR2(128)         not null,
-   GEO_REGION_CODE      NUMBER                not null,
+   CONTENET_GEO_ID      NUMBER                not null,
    GEO_PART_ID          NUMBER                not null,
-   GEO_PART_CODE        NUMBER                not null,
+   GEO_PART_CODE        VARCHAR2(128)         not null,
    GEO_PART_DESC        VARCHAR2(128)         not null,
+   SYSTEM_GEO_ID        NUMBER                not null,
    GEO_SYSTEM_ID        NUMBER                not null,
-   GEO_SYSTEM_CODE      NUMBER                not null,
+   GEO_SYSTEM_CODE      VARCHAR2(128)         not null,
    GEO_SYSTEM_DESC      VARCHAR2(128)         not null,
-   constraint PK_SA_GEO_LOCATIONS primary key (GEO_ID)
+   constraint PK_SA_GEO_LOCATIONS primary key (COUNTRY_GEO_ID)
 )
 tablespace ts_sa_geo_locations_data_01;
 
