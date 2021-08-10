@@ -1,5 +1,5 @@
 CREATE TABLESPACE SB_MBackUp
-DATAFILE '/oracle/u02/oradata/DMORCL21DB/ekalugin_db/SB_MBackUp.dat'
+DATAFILE '/oracle/u02/oradata/DMORCL19DB/ekalugin_db/SB_MBackUp.dat'
     SIZE 100M
 AUTOEXTEND ON NEXT 50M
  SEGMENT SPACE MANAGEMENT AUTO;
@@ -85,7 +85,7 @@ SELECT geo.country_geo_id
        LEFT JOIN u_dw_references.cu_geo_systems gs
           ON ( geo.system_geo_id = gs.geo_id );
 
-SELECT * FROM u_sb_mbackup.sb_mbackup;
+SELECT * FROM u_sb_mbackup.sb_mbackup ORDER BY country_geo_id;
 
 DROP TABLE u_sb_mbackup.sb_mbackup_hierarchy;
 CREATE TABLE u_sb_mbackup.sb_mbackup_hierarchy 

@@ -15,7 +15,7 @@ CREATE OR REPLACE PACKAGE BODY u_dw_cl.pkg_cleansing_load_ref_dates AS
                  month_begin_dt_arr, month_end_dt_arr, qtr_begin_dt_arr, qrt_end_dt_arr,
                  yr_begin_dt_arr, yr_end_dt_arr;
                 
-                FORALL i in 1 .. key_arr.count
+                FORALL i in key_arr.FIRST .. key_arr.LAST
                 INSERT INTO u_dw_data.DW_DATES VALUES(key_arr(i), full_number_arr(i), full_string_arr(i),
                 weekday_fl_arr(i), us_civil_holiday_fl_arr(i), last_day_of_week_fl_arr(i),
                  last_day_of_month_fl_arr(i), last_day_of_qtr_fl_arr(i), last_day_of_yr_fl_arr(i),

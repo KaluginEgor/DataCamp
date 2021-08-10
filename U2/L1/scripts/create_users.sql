@@ -72,7 +72,14 @@ CREATE USER u_sa_dates_data
     DEFAULT TABLESPACE ts_sa_dates_data_01;
 
 grant CONNECT,RESOURCE to u_sa_dates_data;
+--==============================================================
+-- User: u_sa_gen_periods_data
+--==============================================================
+CREATE USER u_sa_gen_periods_data
+  IDENTIFIED BY "%PWD%"
+    DEFAULT TABLESPACE ts_sa_gen_periods_data_01;
 
+grant CONNECT,RESOURCE to u_sa_gen_periods_data;
 
 --DW - Cleansing Level
 
@@ -86,7 +93,7 @@ CREATE USER u_dw_cl
 grant CONNECT,CREATE VIEW,RESOURCE to u_dw_cl;
 
 --DW – Level
-
+ 
 --==============================================================
 -- User: u_dw_data
 --==============================================================

@@ -1,0 +1,10 @@
+truncate table u_dw_data.DW_CUSTOMERS;
+truncate table u_dw_data.DW_DATES;
+truncate table u_dw_data.DW_EMPLOYEES;
+truncate table u_dw_data.DW_GEN_PERIODS;
+truncate table u_dw_data.DW_GEO_LOCATIONS;
+truncate table u_dw_data.DW_PAYMENT_METHODS;
+truncate table u_dw_data.DW_PIZZAS_SCD;
+truncate table u_dw_data.DW_PROMOTIONS;
+truncate table u_dw_data.DW_STORES;
+truncate table u_dw_data.DW_SALES;

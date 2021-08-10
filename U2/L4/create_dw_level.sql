@@ -11,6 +11,8 @@ create table u_dw_data.DW_CUSTOMERS (
    AGE                  NUMBER                not null,
    EMAIL                VARCHAR2(128)         not null,
    PHONE                VARCHAR2(128)         not null,
+   COUNTRY_GEO_ID       NUMBER                not null,
+   GEO_COUNTRY_DESC     VARCHAR2(128)         not null,
    INSERT_DT            DATE                  not null,
    UPDATE_DT            DATE                  not null,
    constraint PK_DW_CUSTOMERS primary key (CUSTOMER_ID)
@@ -55,6 +57,8 @@ create table u_dw_data.DW_EMPLOYEES (
    STORE_ID             NUMBER                not null,
    HIRE_DATE            DATE                  not null,
    MANAGER_ID           NUMBER                not null,
+   MANAGER_FIRST_NAME   VARCHAR2(128)         not null,
+   MANAGER_LAST_NAME    VARCHAR2(128)         not null,
    INSERT_DT            DATE                  not null,
    UPDATE_DT            DATE                  not null,
    constraint PK_DW_EMPLOYEES primary key (EMPLOYEE_ID)
@@ -76,8 +80,8 @@ create table u_dw_data.DW_PIZZAS_SCD (
    PIZZA_DIAMETER       NUMBER                not null,
    PIZZA_PRICE          NUMBER                not null,
    VALID_FROM           DATE                  not null,
-   VALID_TO             CHAR(10)              not null,
-   IS_ACTIVE            CHAR(10)              not null,
+   VALID_TO             DATE                          ,
+   IS_ACTIVE            NUMBER                not null,
    INSERT_DT            DATE                  not null,
    constraint PK_DW_PIZZAS_SCD primary key (PIZZA_SURR_ID)
 )
@@ -89,7 +93,7 @@ drop table u_dw_data.DW_PROMOTIONS cascade constraints;
 /* Table: DW_PROMOTIONS                                        */
 /*==============================================================*/
 create table u_dw_data.DW_PROMOTIONS (
-  PROMOTION_ID         NUMBER                not null,
+   PROMOTION_ID         NUMBER                not null,
    PROMOTION_DESC       VARCHAR2(128)         not null,
    PROMOTION_PERCENT    NUMBER                not null,
    PROMOTION_TYPE_ID    NUMBER                not null,
@@ -187,19 +191,19 @@ create table u_dw_data.DW_DATES (
 )
 tablespace ts_dw_data_01;
 
-drop table u_dw_data.DW_GEN_PERIOD cascade constraints;
+drop table u_dw_data.DW_GEN_PERIODS cascade constraints;
 
 /*==============================================================*/
 /* Table: DW_GEN_PERIOD                                        */
 /*==============================================================*/
-create table u_dw_data.DW_GEN_PERIOD (
+create table u_dw_data.DW_GEN_PERIODS (
    SALES_CAT_ID         NUMBER                not null,
    SALES_CAT_DESC       VARCHAR2(128)         not null,
    START_AMOUNT         NUMBER                not null,
    END_AMOUNT           NUMBER                not null,
    INSERT_DT            DATE                  not null,
    UPDATE_DT            DATE                  not null,
-   constraint PK_DW_GEN_PERIOD primary key (SALES_CAT_ID)
+   constraint PK_DW_GEN_PERIODS primary key (SALES_CAT_ID)
 )
 tablespace ts_dw_data_01;
 
@@ -239,7 +243,7 @@ drop table u_dw_data.DW_SALES cascade constraints;
 create table u_dw_data.DW_SALES (
    EVENT_DT             DATE                  not null,
    SALES_ID             NUMBER                not null,
-   PIZZA_ID             NUMBER                not null,
+   PIZZA_SURR_ID        NUMBER                not null,
    EMPLOYEE_ID          NUMBER                not null,
    CUSTOMER_ID          NUMBER                not null,
    STORE_ID             NUMBER                not null,
@@ -290,4 +294,4 @@ alter table u_dw_data.DW_SALES
 
 alter table u_dw_data.DW_SALES
    add constraint FK_DW_SALE_REFERENCE_DW_GEN_ foreign key (SALES_CAT_ID)
-      references u_dw_data.DW_GEN_PERIOD (SALES_CAT_ID);
+      references u_dw_data.DW_GEN_PERIODS (SALES_CAT_ID);

@@ -1,0 +1,12 @@
+BEGIN
+    pkg_cleansing_load_ref_customers.load_customers;
+    pkg_cleansing_load_ref_dates.load_dates;
+    pkg_cleansing_load_ref_employees.load_employees;
+    pkg_cleansing_load_ref_gen_periods.load_gen_periods;
+    pkg_cleansing_load_ref_geo_locations.load_geo_locations;
+    pkg_cleansing_load_ref_payment_methods.load_payment_methods;
+    pkg_cleansing_load_ref_pizzas.load_pizzas;
+    pkg_cleansing_load_ref_promotions.load_promotions;
+    pkg_cleansing_load_ref_stores.load_stores;
+    pkg_cleansing_load_ref_sales.load_sales;
+END;

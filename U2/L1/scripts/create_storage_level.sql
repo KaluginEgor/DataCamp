@@ -11,6 +11,8 @@ create table u_sa_customers_data.sa_customers (
    AGE                  NUMBER                not null,
    EMAIL                VARCHAR2(128)         not null,
    PHONE                VARCHAR2(128)         not null,
+   COUNTRY_GEO_ID       NUMBER                not null,
+   GEO_COUNTRY_DESC     VARCHAR2(128)         not null,
    constraint PK_SA_CUSTOMERS primary key (CUSTOMER_ID)
 )
 tablespace ts_sa_customers_data_01;
@@ -51,6 +53,8 @@ create table u_sa_employees_data.sa_employees (
    STORE_ID             NUMBER                not null,
    HIRE_DATE            DATE                  not null,
    MANAGER_ID           NUMBER                not null,
+   MANAGER_FIRST_NAME   VARCHAR2(128)         not null,
+   MANAGER_LAST_NAME    VARCHAR2(128)         not null,
    constraint PK_SA_EMPLOYEES primary key (EMPLOYEE_ID)
 )
 tablespace ts_sa_employees_data_01;
@@ -171,6 +175,21 @@ create table u_sa_payment_methods_data.sa_payment_methods (
 tablespace ts_sa_payment_methods_data_01;
 
 
+drop table u_sa_gen_periods_data.sa_gen_periods cascade constraints;
+
+/*==============================================================*/
+/* Table: sa_gen_periods                                        */
+/*==============================================================*/
+create table u_sa_gen_periods_data.sa_gen_periods (
+   SALES_CAT_ID         NUMBER                not null,
+   SALES_CAT_DESC       VARCHAR2(128)         not null,
+   START_AMOUNT         NUMBER                not null,
+   END_AMOUNT           NUMBER                not null,
+   constraint PK_SA_GEN_PERIODS primary key (SALES_CAT_ID)
+)
+tablespace ts_sa_gen_periods_data_01;
+
+
 drop table u_sa_sales_data.sa_sales cascade constraints;
 
 /*==============================================================*/
@@ -183,9 +202,10 @@ create table u_sa_sales_data.sa_sales (
    STORE_ID             NUMBER                not null,
    GEO_ID               NUMBER                not null,
    DATE_ID              NUMBER                not null,
-   PIZZA_ID             NUMBER,
+   PIZZA_ID             NUMBER                not null,
    PAYMENT_METHOD_ID    NUMBER                not null,
    PROMOTION_ID         NUMBER                not null,
+   SALES_CAT_ID         NUMBER                not null,
    SALES_AMOUNT         NUMBER                not null,
    SALES_SUM            NUMBER                not null,
    constraint PK_SA_SALES primary key (SALES_ID)
