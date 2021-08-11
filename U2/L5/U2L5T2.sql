@@ -20,13 +20,13 @@ SET AUTOTRAcE ON;
        , d.date_month_number_of_yr month
        , gen.sales_cat_desc sale_category
        , SUM(s.sales_amount) sales_amount
-   FROM u_sa_sales_data.sa_sales s 
-       join u_sa_geo_locations_data.sa_geo_locations geo on s.geo_id = geo.country_geo_id
-       join u_sa_gen_periods_data.sa_gen_periods gen on s.sales_cat_id = gen.sales_cat_id
-       join u_sa_dates_data.sa_dates d on s.date_id = d.date_key 
-       join u_sa_stores_data.sa_stores st on s.store_id = st.store_id  
-       join u_sa_customers_data.sa_customers cus  on s.customer_id = cus.customer_id 
-       join u_sa_pizzas_data.sa_pizzas p on s.pizza_id = p.pizza_id 
+   FROM u_dw_data.dw_sales s 
+       join u_dw_data.dw_geo_locations geo on s.geo_id = geo.country_geo_id
+       join u_dw_data.dw_gen_periods gen on s.sales_cat_id = gen.sales_cat_id
+       join u_dw_data.dw_dates d on s.date_id = d.date_key 
+       join u_dw_data.dw_stores st on s.store_id = st.store_id  
+       join u_dw_data.dw_customers cus  on s.customer_id = cus.customer_id 
+       join u_dw_data.dw_pizzas_scd p on s.pizza_surr_id = p.pizza_surr_id 
   WHERE d.date_year_number IN (2018) 
     AND d.date_month_number_of_yr BETWEEN 1 AND 13
   GROUP BY d.date_month_number_of_yr
@@ -47,15 +47,15 @@ SELECT /*+ gather_plan_statistics */ s.sales_id id
        , d.date_month_number_of_yr month
        , gen.sales_cat_desc sale_category
        , s.sales_amount sales_amount
-   FROM u_sa_sales_data.sa_sales s 
-       join u_sa_geo_locations_data.sa_geo_locations geo on s.geo_id = geo.country_geo_id
-       join u_sa_gen_periods_data.sa_gen_periods gen on s.sales_cat_id = gen.sales_cat_id
-       join u_sa_dates_data.sa_dates d on s.date_id = d.date_key 
-       join u_sa_stores_data.sa_stores st on s.store_id = st.store_id  
-       join u_sa_customers_data.sa_customers cus  on s.customer_id = cus.customer_id 
-       join u_sa_pizzas_data.sa_pizzas p on s.pizza_id = p.pizza_id 
+   FROM u_dw_data.dw_sales s 
+       join u_dw_data.dw_geo_locations geo on s.geo_id = geo.country_geo_id
+       join u_dw_data.dw_gen_periods gen on s.sales_cat_id = gen.sales_cat_id
+       join u_dw_data.dw_dates d on s.date_id = d.date_key 
+       join u_dw_data.dw_stores st on s.store_id = st.store_id  
+       join u_dw_data.dw_customers cus  on s.customer_id = cus.customer_id 
+       join u_dw_data.dw_pizzas_scd p on s.pizza_surr_id = p.pizza_surr_id 
   WHERE d.date_year_number IN (2018) 
-    AND d.date_month_number_of_yr BETWEEN 1 AND 13;
+    AND d.date_month_number_of_yr BETWEEN 1 AND 13
     
 SELECT * FROM lab5
 group by month, store, customer, country, sale_category
