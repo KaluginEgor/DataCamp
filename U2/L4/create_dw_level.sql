@@ -265,7 +265,7 @@ alter table u_dw_data.DW_SALES
       references u_dw_data.DW_CUSTOMERS (CUSTOMER_ID);
 
 alter table u_dw_data.DW_SALES
-   add constraint FK_DW_SALE_REFERENCE_DW_PIZZ foreign key (PIZZA_ID)
+   add constraint FK_DW_SALE_REFERENCE_DW_PIZZ foreign key (PIZZA_SURR_ID)
       references u_dw_data.DW_PIZZAS_SCD (PIZZA_SURR_ID);
 
 alter table u_dw_data.DW_SALES

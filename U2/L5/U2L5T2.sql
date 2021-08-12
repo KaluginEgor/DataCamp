@@ -55,8 +55,9 @@ SELECT /*+ gather_plan_statistics */ s.sales_id id
        join u_dw_data.dw_customers cus  on s.customer_id = cus.customer_id 
        join u_dw_data.dw_pizzas_scd p on s.pizza_surr_id = p.pizza_surr_id 
   WHERE d.date_year_number IN (2018) 
-    AND d.date_month_number_of_yr BETWEEN 1 AND 13
-    
+    AND d.date_month_number_of_yr BETWEEN 1 AND 13;
+
+SET AUTOTRACE ON;   
 SELECT * FROM lab5
 group by month, store, customer, country, sale_category
      model

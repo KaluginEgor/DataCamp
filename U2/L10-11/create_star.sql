@@ -194,7 +194,7 @@ tablespace ts_sal_data_01;
 drop table u_sal_data.DIM_GEN_PERIODS cascade constraints;
 
 /*==============================================================*/
-/* Table: DIM_GEN_PERIOD                                        */
+/* Table: DIM_GEN_PERIODS                                       */
 /*==============================================================*/
 create table u_sal_data.DIM_GEN_PERIODS (
    SALES_CAT_ID         NUMBER                not null,
@@ -208,31 +208,31 @@ create table u_sal_data.DIM_GEN_PERIODS (
 tablespace ts_sal_data_01;
 
 
-alter table u_sal_data.DIM_SALES
+alter table u_sal_data.FCT_SALES
    drop constraint FK_DIM_SALE_REFERENCE_DIM_CUST;
 
-alter table u_sal_data.DIM_SALES
+alter table u_sal_data.FCT_SALES
    drop constraint FK_DIM_SALE_REFERENCE_DIM_PIZZ;
 
-alter table u_sal_data.DIM_SALES
+alter table u_sal_data.FCT_SALES
    drop constraint FK_DIM_SALE_REFERENCE_DIM_EMPL;
 
-alter table u_sal_data.DIM_SALES
+alter table u_sal_data.FCT_SALES
    drop constraint FK_DIM_SALE_REFERENCE_DIM_DATE;
 
-alter table u_sal_data.DIM_SALES
+alter table u_sal_data.FCT_SALES
    drop constraint FK_DIM_SALE_REFERENCE_DIM_STOR;
 
-alter table u_sal_data.DIM_SALES
+alter table u_sal_data.FCT_SALES
    drop constraint FK_DIM_SALE_REFERENCE_DIM_PAYM;
 
-alter table u_sal_data.DIM_SALES
+alter table u_sal_data.FCT_SALES
    drop constraint FK_DIM_SALE_REFERENCE_DIM_PROM;
 
-alter table u_sal_data.DIM_SALES
+alter table u_sal_data.FCT_SALES
    drop constraint FK_DIM_SALE_REFERENCE_DIM_GEO_;
 
-alter table u_sal_data.DIM_SALES
+alter table u_sal_data.FCT_SALES
    drop constraint FK_DIM_SALE_REFERENCE_DIM_GEN_;
 
 drop table u_sal_data.FCT_SALES cascade constraints;
@@ -257,6 +257,14 @@ create table u_sal_data.FCT_SALES (
    INSERT_DT            DATE                  not null,
    UPDATE_DT            DATE                  not null,
    constraint PK_FCT_SALES primary key (SALES_ID)
+)
+PARTITION BY RANGE(date_id)
+(
+    PARTITION sales_2016 VALUES LESS THAN(20170000),
+    PARTITION sales_2017 VALUES LESS THAN(20180000),
+    PARTITION sales_2018 VALUES LESS THAN(20190000),
+    PARTITION sales_2019 VALUES LESS THAN(20200000),
+    PARTITION sales_2020 VALUES LESS THAN(20210000)
 )
 tablespace ts_sal_data_01;
 
